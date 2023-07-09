@@ -1,0 +1,929 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F91D7A61-6AC4-4A65-BED5-DE3BAE356CBC}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HungHaStore</RootNamespace>
+    <AssemblyName>HungHaStore</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44338</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\ACategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AInvoiceController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AOrderController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AProviderController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AUserController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AuthorController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DefaultController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AStoreController.cs" />
+    <Compile Include="Controllers\AjaxController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InvoiceController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\SecurityController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\AuthorHelper.cs" />
+    <Compile Include="Helper\CalculatorHelper.cs" />
+    <Compile Include="Helper\CartHelper.cs" />
+    <Compile Include="Models\chitiet_hd.cs" />
+    <Compile Include="Models\dat_hang.cs" />
+    <Compile Include="Models\hoa_don.cs" />
+    <Compile Include="Models\kho.cs" />
+    <Compile Include="Models\loai_sp.cs" />
+    <Compile Include="Models\Model1.cs" />
+    <Compile Include="Models\nguoi_dung.cs" />
+    <Compile Include="Models\nha_cung_cap.cs" />
+    <Compile Include="Models\san_pham.cs" />
+    <Compile Include="Models\sysdiagram.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\html\blog-details.html" />
+    <Content Include="App_Data\html\blog.html" />
+    <Content Include="App_Data\html\checkout.html" />
+    <Content Include="App_Data\html\contact.html" />
+    <Content Include="App_Data\html\css\bootstrap.min.css" />
+    <Content Include="App_Data\html\css\elegant-icons.css" />
+    <Content Include="App_Data\html\css\font-awesome.min.css" />
+    <Content Include="App_Data\html\css\jquery-ui.min.css" />
+    <Content Include="App_Data\html\css\nice-select.css" />
+    <Content Include="App_Data\html\css\owl.carousel.min.css" />
+    <Content Include="App_Data\html\css\slicknav.min.css" />
+    <Content Include="App_Data\html\css\style.css" />
+    <Content Include="App_Data\html\fonts\ElegantIcons.svg" />
+    <Content Include="App_Data\html\fonts\fontawesome-webfont.svg" />
+    <Content Include="App_Data\html\img\banner\banner-1.jpg" />
+    <Content Include="App_Data\html\img\banner\banner-2.jpg" />
+    <Content Include="App_Data\html\img\blog\blog-1.jpg" />
+    <Content Include="App_Data\html\img\blog\blog-2.jpg" />
+    <Content Include="App_Data\html\img\blog\blog-3.jpg" />
+    <Content Include="App_Data\html\img\blog\blog-4.jpg" />
+    <Content Include="App_Data\html\img\blog\blog-5.jpg" />
+    <Content Include="App_Data\html\img\blog\blog-6.jpg" />
+    <Content Include="App_Data\html\img\blog\details\details-author.jpg" />
+    <Content Include="App_Data\html\img\blog\details\details-hero.jpg" />
+    <Content Include="App_Data\html\img\blog\details\details-pic.jpg" />
+    <Content Include="App_Data\html\img\blog\sidebar\sr-1.jpg" />
+    <Content Include="App_Data\html\img\blog\sidebar\sr-2.jpg" />
+    <Content Include="App_Data\html\img\blog\sidebar\sr-3.jpg" />
+    <Content Include="App_Data\html\img\breadcrumb.jpg" />
+    <Content Include="App_Data\html\img\cart\cart-1.jpg" />
+    <Content Include="App_Data\html\img\cart\cart-2.jpg" />
+    <Content Include="App_Data\html\img\cart\cart-3.jpg" />
+    <Content Include="App_Data\html\img\categories\cat-1.jpg" />
+    <Content Include="App_Data\html\img\categories\cat-2.jpg" />
+    <Content Include="App_Data\html\img\categories\cat-3.jpg" />
+    <Content Include="App_Data\html\img\categories\cat-4.jpg" />
+    <Content Include="App_Data\html\img\categories\cat-5.jpg" />
+    <Content Include="App_Data\html\img\featured\feature-1.jpg" />
+    <Content Include="App_Data\html\img\featured\feature-2.jpg" />
+    <Content Include="App_Data\html\img\featured\feature-3.jpg" />
+    <Content Include="App_Data\html\img\featured\feature-4.jpg" />
+    <Content Include="App_Data\html\img\featured\feature-5.jpg" />
+    <Content Include="App_Data\html\img\featured\feature-6.jpg" />
+    <Content Include="App_Data\html\img\featured\feature-7.jpg" />
+    <Content Include="App_Data\html\img\featured\feature-8.jpg" />
+    <Content Include="App_Data\html\img\hero\banner.jpg" />
+    <Content Include="App_Data\html\img\language.png" />
+    <Content Include="App_Data\html\img\latest-product\lp-1.jpg" />
+    <Content Include="App_Data\html\img\latest-product\lp-2.jpg" />
+    <Content Include="App_Data\html\img\latest-product\lp-3.jpg" />
+    <Content Include="App_Data\html\img\logo.png" />
+    <Content Include="App_Data\html\img\payment-item.png" />
+    <Content Include="App_Data\html\img\product\anh.jpg" />
+    <Content Include="App_Data\html\img\product\avar-2-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\avar-7-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\avar-8-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\avar-ban-lam-viec-ngoi-bet-ghc-4601-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\avar-kệ-sách-gỗ-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\avar-tu-quan-ao-GHC-51460--300x300.jpg" />
+    <Content Include="App_Data\html\img\product\Ban-an-bang-go-4-cho-thiet-ke-dep-GHS-41221-ava-300x300.png" />
+    <Content Include="App_Data\html\img\product\Ban-an-bang-go-chat-luong-cao-GHS-41081-ava-300x300.png" />
+    <Content Include="App_Data\html\img\product\Ban-an-bang-go-chat-luong-cao-GHS-41154-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ban-an-bang-go-dep-cho-gia-dinh-GHS-41219-ava-300x300.png" />
+    <Content Include="App_Data\html\img\product\ban-an-bang-go-kieu-dang-tahnh-lich-GHS-41213-ava-300x300.png" />
+    <Content Include="App_Data\html\img\product\Ban-an-bang-go-thiet-ke-dep-GHS-41085-ava-300x300.png" />
+    <Content Include="App_Data\html\img\product\Ban-an-dep-bang-go-tu-nhien-GHS-41093-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ban-an-gap-gon-ban-an-go-thiet-ke-thong-minh-ghc-41222-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\Ban-an-gia-dinh-4-cho-bang-go-tu-nhien-GHS-41216-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\Ban-an-gia-dinh-bang-go-thiet-ke-dep-GHS-41147-ava-300x300.png" />
+    <Content Include="App_Data\html\img\product\Ban-an-gia-dinh-bang-go-tu-nhien-GHS-41086-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\Ban-an-gia-dinh-hien-dai-dep-GHS-41079-ava-300x300.png" />
+    <Content Include="App_Data\html\img\product\Ban-an-gia-dinh-phong-cach-hien-dai-GHS-41220-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\Ban-an-gia-dinh-thiet-ke-dep-bang-go-soi-GHS-41212-ava-300x300.png" />
+    <Content Include="App_Data\html\img\product\ban-an-go-cong-nghiep-nho-gon-tien-loi-ghs-4854-300x300.png" />
+    <Content Include="App_Data\html\img\product\ban-an-go-gia-dinh-dep-sang-trong-hien-dai-ghs-4905-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ban-an-go-gia-dinh-ghe-boc-ni-cao-cap-ghs-4909-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ban-an-go-gia-dinh-thiet-ke-dep-hien-dai-ghs-4853-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ban-an-go-gia-dinh-thiet-ke-sang-trong-hien-dai-ghs-4899-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ban-an-go-hien-dai-sang-trong-tien-dung-ghs-4852-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ban-an-go-hien-dai-thiet-ke-nho-gon-sang-trong-ghs-4908-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ban-an-go-soi-gia-dinh-thiet-ke-dep-hien-dai-ghs-4902-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\Ban-an-go-soi-kieu-dang-nho-gon-cho-gia-dinh-GHS-41218-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\Ban-an-go-soi-thiet-ke-dep-thanh-lich-GHS-41215-ava-300x300.png" />
+    <Content Include="App_Data\html\img\product\Ban-an-go-tu-nhien-cao-cap-GHS-41088-ava-300x300.png" />
+    <Content Include="App_Data\html\img\product\Ban-an-hien-dai-4-ghe-cho-gia-dinh-GHS-41090-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ban-an-hien-dai-bang-go-cao-cap-GHS-41145-ava-300x300.png" />
+    <Content Include="App_Data\html\img\product\Ban-an-hien-dai-bang-go-cho-gia-dinh-GHS-41152-ava-300x300.png" />
+    <Content Include="App_Data\html\img\product\ban-an-hien-dai-bang-go-soi-tu-nhien-sang-trong-ghs-4900-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\Ban-an-hien-dai-cho-gia-dinh-GHS-41148-ava-300x300.png" />
+    <Content Include="App_Data\html\img\product\Ban-an-hien-dai-thiet-ke-an-tuong-GHS-41089-ava-300x300.png" />
+    <Content Include="App_Data\html\img\product\Ban-an-hinh-vuong-bang-go-tu-nhien-GHS-41092-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ban-hoc-doi-ban-lam-viec-doi-go-mdf-ghc-4612-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ban-lam-viec-bang-go-mdf-phu-melamine-ghs-41397-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ban-lam-viec-bang-go-thiet-ke-da-nang-ghs-41401-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\Ban-lam-viec-ca-nhan-bang-go-cong-nghiep-nho-gon-GHS-41371-ava-300x300.png" />
+    <Content Include="App_Data\html\img\product\Ban-lam-viec-ca-nhan-bang-go-kieu-dang-nho-gon-GHS-41356-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\Ban-lam-viec-ca-nhan-tai-nha-kieu-dang-nho-gon-GHS-41359-ava-300x300.png" />
+    <Content Include="App_Data\html\img\product\ban-lam-viec-ca-nhan-thiet-ke-don-gian-ghs-41403-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\Ban-lam-viec-dep-bang-go-phong-cach-hien-dai-GHS-41373-ava-300x300.png" />
+    <Content Include="App_Data\html\img\product\Ban-lam-viec-dep-kieu-dang-nho-gon-go-cong-nghiep-GHS-41368-ava-300x300.png" />
+    <Content Include="App_Data\html\img\product\ban-lam-viec-di-dong-ban-go-lam-viec-chac-chan-ghc-4603-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ban-lam-viec-don-gian-kieu-dang-hien-dai-ghs-41407-9-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ban-lam-viec-go-ban-hoc-da-nang-thiet-ke-hien-dai-ghc-4623-ava-1-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ban-lam-viec-go-cong-nghiep-cao-cap-ghs-41400-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\Ban-lam-viec-go-cong-nghiep-khung-sat-chat-luong-cao-GHS-41370-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\Ban-lam-viec-go-cong-nghiep-khung-sat-phun-son-tinh-dien-GHS-41355-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\Ban-lam-viec-go-cong-nghiep-phun-son-cao-cap-GHS-41363-ava-300x300.png" />
+    <Content Include="App_Data\html\img\product\Ban-lam-viec-go-cong-nghiep-phun-son-hien-dai-GHS-41358-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\Ban-lam-viec-go-cong-nghiep-tien-loi-kem-gia-sach-GHS-41360-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ban-lam-viec-go-di-dong-ban-go-lien-ke-nho-gon-ghc-4604-ava-1-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ban-lam-viec-go-kieu-dang-nho-gon-ghs-41396-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ban-lam-viec-go-lien-gia-sach-ben-dep-ghs-41411-ava-3-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ban-lam-viec-go-mdf-lien-tu-tai-lieu-ghs-41406-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\Ban-lam-viec-go-soi-tu-nhien-thiet-ke-dep-GHS-41372-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\Ban-lam-viec-go-tu-nhien-thiet-ke-tien-dung-GHS-41366-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\Ban-lam-viec-hien-dai-bang-go-cong-nghiep-cho-ca-nhan-GHS-41362-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ban-lam-viec-hien-dai-go-GHS-41399-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ban-lam-viec-hien-dai-lien-gia-sach-bang-go-ghs-41413-15-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\Ban-lam-viec-hien-dai-thiet-ke-dep-thong-minh-GHS-41365-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ban-lam-viec-lien-gia-ket-cau-chac-chan-ghs-41410-ava-1-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ban-lam-viec-lien-gia-kieu-dang-don-gian-ghs-41398-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ban-lam-viec-nho-gon-bang-go-mdf-cot-loi-xanh-ghs-41404-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ban-lam-viec-tai-nha-bang-go-cong-nghiep-ghs-41405-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\Ban-lam-viec-tai-nha-bang-go-kieu-dang-nho-gon-GHS-41361-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\Ban-lam-viec-tai-nha-bang-go-thiet-ke-tien-loi-GHS-41369-ava-300x300.png" />
+    <Content Include="App_Data\html\img\product\Ban-lam-viec-tai-nha-khung-sat-chat-luong-cao-GHS-41357-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ban-lam-viec-tai-nha-lien-tu-chua-tai-lieu-ghs-41408-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\Ban-lam-viec-tai-nha-nho-gon-thiet-ke-dep-GHS-41364-ava-300x300.png" />
+    <Content Include="App_Data\html\img\product\Ban-lam-viec-tai-nha-thiet-ke-hien-dai-bang-go-GHS-41315-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ban-lam-viec-tatami-ban-hoc-bang-go-mdf-ghc-4622-ava-1-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ban-lam-viec-thong-minh-4155-2-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ban-lam-viec-thong-minh-bang-go-cong-nghiep-ghs-4155-2-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ban-lam-viec-thong-minh-GHC-4624-11-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\Ban-lam-viec-tien-dung-bang-go-cong-nghiep-GHS-41314-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ban-nhat-da-nang-bang-go-soi-cao-cap-ghc-41414-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\Bo-ban-an-chat-luong-cao-thiet-ke-dep-GHS-41091-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\Bo-ban-an-gi-kieu-dang-nho-gon-GHS-41082-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\Bo-ban-an-gia-dinh-dep-thanh-lich-GHS-41153-ava-300x300.png" />
+    <Content Include="App_Data\html\img\product\Bo-ban-an-gia-dinh-kieu-dang-nho-gon-GHS-41155-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\Bo-ban-an-gia-dinh-thiet-ke-dep-GHS-41083-ava-300x300.png" />
+    <Content Include="App_Data\html\img\product\Bo-ban-an-go-4-ghe-hien-dai-GHS-41080-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\Bo-ban-an-go-dep-cho-gia-dinh-GHS-41087-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\Bo-ban-an-go-thiet-ke-an-tuong-GHS-41150-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\Bo-ban-an-hien-dai-cho-gia-dinh-GHS-41084-ava-300x300.png" />
+    <Content Include="App_Data\html\img\product\Bo-ban-an-hien-dai-go-soi-kieu-dang-nho-gon-GHS-41217-ava-300x300.png" />
+    <Content Include="App_Data\html\img\product\Bo-ban-an-tron-phong-cach-hien-dai-GHS-41149-ava-300x300.png" />
+    <Content Include="App_Data\html\img\product\Bo-ban-ghe-an-bang-go-tu-nhien-GHS-41151-ava-300x300.png" />
+    <Content Include="App_Data\html\img\product\Bo-ban-ghe-an-go-chat-luong-cao-cho-gia-dinh-GHS-41214-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\Bo-ban-ghe-an-phong-cach-hien-dai-GHS-41146-ava-300x300.png" />
+    <Content Include="App_Data\html\img\product\Bàn-máy-tính-bàn-học-sinh-viên-bàn-làm-việc-tại-nhà-GHC-41416-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ghc-9192-tk-300x300.png" />
+    <Content Include="App_Data\html\img\product\gia-de-sach-go-nho-gon-ghs-2388-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\gia-de-sach-truyen-cho-be-bang-go-ghs-2385-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\gia-ke-sach-bang-go-da-nang-ghs-2394-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\gia-ke-sach-go-thiet-ke-don-gian-ghs-2398-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\gia-ke-sach-nhat-ke-sach-go-4-ngan-chua-tien-loi-ghc-2419-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\gia-sach-bang-go-kieu-dang-tien-dung-ghs-2378-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\gia-sach-cao-cap-bang-go-ghs-2382-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\gia-sach-da-nang-thiet-ke-sang-trong-ghs-2381-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\gia-sach-gia-dinh-kieu-dang-nho-gon-ghs-2379-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\gia-sach-gia-dinh-thiet-ke-da-nang-ghc-2405-9-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\gia-sach-go-nho-gon-thiet-ke-da-nang-ghc-2418-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\gia-sach-hien-dai-thiet-ke-don-gian-ghs-2377-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\gia-sach-hien-dai-thiet-ke-thong-minh-ghs-2380-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\gia-sach-phong-be-ke-gia-sach-go-mdf-ghc-2423-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-don-bang-go-cong-nghiep-thiet-ke-don-gian-ghs-9204-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-gia-dinh-go-cao-cap-thiet-ke-da-nang-ghs-9205-ava-1-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-go-cho-be-ghc-9226-1-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-go-cong-nghiep-mdf-thiet-ke-da-nang-ghs-9192-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-go-gia-dinh-kieu-dang-sang-trong-ghs-9200-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-go-MDF-ghc-9223-11-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-go-mdf-giuong-ngu-ket-cau-chac-chan-ghc-9206-ava-1-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-go-mdf-rong-1m2-phong-cach-nhat-ghc-9214-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-go-soi-tu-nhien-ket-cau-chac-chan-ghs-9189-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-go-tu-nhien-cao-cap-thiet-ke-don-gian-ghs-9191-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-hop-hien-dai-thiet-ke-tien-loi-ghc-9194-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-ngu-bang-go-hien-dai-kieu-dang-sang-trong-ghs-9190-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-ngu-bang-go-thiet-ke-phong-cach-hien-dai-ghs-9181-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-ngu-bang-go-thiet-ke-sang-trong-ghc-9093-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-ngu-bet-GHC-9221-11-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-ngu-cho-be-giuong-go-cong-nghiep-mdf-dep-ghc-9227-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-ngu-cho-be-giuong-ngu-mai-nha-bang-go-ghc-9228-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-ngu-cho-tre-em-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-ngu-dep-hien-dai-thiet-ke-da-nang-ghs-9199-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-ngu-gia-dinh-bang-go-thiet-ke-sang-trong-ghs-9186-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-ngu-gia-dinh-cao-cap-lam-bang-go-mdf-ghs-9198-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-ngu-gia-dinh-hien-dai-thiet-ke-tre-trung-ghs-9195-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-ngu-gia-dinh-phong-cach-nhat-ghc-9217-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-ngu-go-cong-nghiep-mdf-thiet-ke-moi-ghc-9216-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-ngu-go-dep-ket-cau-chac-chan-ghs-9182-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-ngu-go-gia-dinh-thiet-ke-don-gian-ghs-9203-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-ngu-go-mdf-tatami-rong-1m4-thiet-ke-moi-ghc-9219-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-ngu-go-mdf-thiet-ke-kieu-dang-don-gian-ghs-9201-ava-1-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-ngu-go-soi-da-nang-tien-dung-ghs-9183-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-ngu-go-soi-thiet-ke-don-gian-ghs-9187-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-ngu-go-soi-thiet-ke-sang-trong-ghs-9184-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-ngu-hien-dai-bang-go-soi-ghs-9188-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-ngu-hien-dai-bang-go-thiet-ke-lien-gia-trung-bay-ghs-9196-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-ngu-hien-dai-kieu-dang-sang-trong-ghs-9185-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-ngu-hien-dai-tatami-rong-1m2-ket-cau-chac-chan-ghc-9218-ava-1-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-ngu-nhat-bang-go-thiet-ke-tien-loi-ghs-9202-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-ngu-nhat-tatami-bang-go-cong-nghiep-ghc-9230-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-ngu-nhat-tatami-rong-1m6-bang-go-cong-nghiep-ghc-9220-ava-1-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-ngu-tatami-rong-1m-thiet-ke-don-gian-ghc-9213-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-ngu-tatami-thiet-ke-tre-trung-ghc-9209-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-nhat-bang-go-GHC-9224-10-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-nhat-bang-go-rong-1m4-kieu-dang-hien-dai-ghc-9215-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-nhat-tatami-bang-go-cong-nghiep-ghc-9207-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-queen-bang-go-mdf-thiet-ke-sang-trong-ghc-9193-1-1-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\giuong-tatami-bang-go-ghc-9222-11-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\Giá-kệ-sách-tủ-để-đồ-xếp-hình-lắp-ráp-đa-năng-8-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\Giá-kệ-vuông-tủ-đồ-xếp-hình-tùy-biến-không-gian-GHC-2407-7-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ke-de-do-hinh-robot-bang-go-thiet-ke-moi-ghc-1104-ava2-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ke-de-sach-bang-go-mdf-cao-cap-ghs-2399-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ke-de-sach-bao-go-mdf-phu-melamine-ghs-2397-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ke-de-sach-cho-tre-ke-trang-tri-go-cong-nghiep-ghc-1101-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ke-de-truyen-tranh-ke-gia-sach-go-mdf-ghc-1108-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ke-do-quan-ao-tu-ke-treo-ao-kieu-dang-nho-gon-ghs-51480-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ke-gia-de-sach-bang-go-tai-nha-ghs-2388-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ke-gia-sach-go-da-nang-kieu-dang-tre-trung-ghs-51598-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ke-gia-sach-go-ke-de-sach-nho-gon-dep-ghc-2413-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ke-go-tatami-kieu-dang-don-gian-phong-cach-nhat-ghc-2422-ava-1-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ke-go-tatami-thiet-ke-thong-minh-tien-loi-ghc-2424-ava-1-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ke-sach-bang-go-ghc-2426-1-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ke-sach-cho-be-ghc-1111-3-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ke-sach-da-nang-ke-gia-sach-bang-go-mdf-chac-chan-ghc-2429-ava-1-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ke-sach-da-nang-kieu-dang-doc-dao-ghs-2395-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ke-sach-dung-dep-thiet-ke-nho-gon-ghs-2384-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ke-sach-dung-ke-de-do-trang-tri-chan-go-tu-nhien-ghc-191-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ke-sach-go-ke-trung-bay-da-nang-ghc-2417-ava-300x300.png" />
+    <Content Include="App_Data\html\img\product\ke-sach-go-mdf-phu-melamine-ghs-2393-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ke-sach-hien-dai-thiet-ke-sang-trong-ghs-2383-ava-1-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ke-sach-hinh-robot-ke-de-do-go-kieu-dang-doc-dao-ghc-1103-2-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ke-sach-mai-nha-doc-dao-ke-de-do-dep-ghc-1100-ava-1-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ke-sach-nho-ghc-1110-9-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ke-sach-nho-gon-ket-cau-chac-chan-ghc-1105-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ke-sach-nho-ke-gia-sach-go-cong-nghiep-ghc-2416-ava-300x300.png" />
+    <Content Include="App_Data\html\img\product\ke-sach-tatami-ke-gia-sach-go-cong-nghiep-ghc-2420-ava-1-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ke-tatami-thong-minh-ke-gia-de-do-bang-go-ghc-2421-ava-1-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\ke-truyen-tranh-cho-be-ke-trang-tri-go-mdf-ghc-199-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\set-giuong-bet-tab-dau-giuong-kieu-nhat-ghc-9208-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-ao-bang-go-canh-truot-thiet-ke-tien-loi-ghs-51338-ava-1-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-ao-bang-go-thiet-ke-canh-mo-tien-dung-ghs-51436-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-ao-canh-chop-bang-go-soi-tu-nhien-cao-cap-ghs-51442-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-ao-canh-lua-bang-go-soi-tu-nhien-ghs-51143-ava1-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-ao-canh-lua-thiet-ke-chop-gia-ghs-51441-ava-1-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-ao-canh-mo-bang-go-kieu-dang-nho-gon-ghs-51345-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-ao-canh-mo-gia-dinh-bang-go-cao-cap-ghs-51435-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-ao-cho-be-ghc-2432-10-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-ao-di-dong-tu-quan-ao-thiet-ke-hien-dai-thong-minh-ghc-51462-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-ao-gia-dinh-bang-go-thiet-ke-dep-ghs-51434-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-ao-gia-dinh-tu-de-quan-ao-bang-go-tien-loi-ghc-51464-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-ao-go-hien-dai-thiet-ke-canh-mo-ghs-51444-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-ao-go-mdf-cho-be-gai-kieu-dang-de-thuong-ghs-51438-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-ao-go-mdf-ket-cau-chac-chan-phu-melamine-ghc-51472-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-ao-go-nho-gon-thiet-ke-phong-cach-hien-dai-ghc-51473-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-ao-nho-gon-ghc-5722-1-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-ao-nho-gon-tu-de-quan-ao-bang-go-mdf-ghc-51463-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-ao-tatami-go-thiet-ke-tien-dung-ghc-51469-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-de-do-tatami-tu-ao-kieu-nhat-bang-go-ghc-51471-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-de-quan-ao-bang-go-mdf-phun-son-ghs-51433-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-de-quan-ao-bang-go-thiet-ke-tien-loi-ghs-51430-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-de-quan-ao-canh-truot-go-mdf-cot-loi-xanh-ghs-51342-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-de-quan-ao-go-cong-nghiep-ket-cau-chac-chan-ghs-51344-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-dung-quan-ao-canh-mo-kich-thuoc-nho-gon-ghs-51428-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-dung-quan-ao-go-soi-sang-trong-ghs-51432-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-dung-quan-ao-thiet-ke-canh-truot-trien-dung-ghs-51340-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-go-dung-quan-ao-gia-dinh-thiet-ke-hien-dai-ghs-51343-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-luu-tru-do-tu-quan-ao-go-cong-nghiep-ghc-51476-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-quan-ao-canh-lua-bang-go-ket-cau-chac-chan-ghs-51339-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-quan-ao-canh-lua-thiet-ke-hien-dai-ghs-51429-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-quan-ao-canh-mo-go-mdf-thiet-ke-hien-dai-ghs-51341-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-quan-ao-canh-truot-bang-go-cao-cap-ghs-51439-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-quan-ao-cho-be-bang-go-cong-nghiep-ghs-51437-ava-1-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-quan-ao-cho-be-GHC-51467-1-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-quan-ao-cho-be-tu-dung-do-bang-go-cong-nghiep-ghc-5725-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-quan-ao-dep-thiet-ke-canh-mo-ghs-51431-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-quan-ao-don-gian-ghc-5724-3-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-quan-ao-GHC-1-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-quan-ao-GHC-51471-1-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-quan-ao-go-canh-chop-gia-cao-cap-ghs-51440-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-quan-ao-go-ghc-51466-1-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-quan-ao-go-kieu-nhat-tu-luu-tru-do-da-nang-ghc-51479-ava-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-treo-quan-ao-ghc-5720-2-300x300.jpg" />
+    <Content Include="App_Data\html\img\product\tu-treo-quan-ao-ghc-5723-1-300x300.jpg" />
+    <Content Include="App_Data\html\index.html" />
+    <Content Include="App_Data\html\js\bootstrap.min.js" />
+    <Content Include="App_Data\html\js\jquery-3.3.1.min.js" />
+    <Content Include="App_Data\html\js\jquery-ui.min.js" />
+    <Content Include="App_Data\html\js\jquery.nice-select.min.js" />
+    <Content Include="App_Data\html\js\jquery.slicknav.js" />
+    <Content Include="App_Data\html\js\main.js" />
+    <Content Include="App_Data\html\js\mixitup.min.js" />
+    <Content Include="App_Data\html\js\owl.carousel.min.js" />
+    <Content Include="App_Data\html\main.html" />
+    <Content Include="App_Data\html\readme.txt" />
+    <Content Include="App_Data\html\shop-details.html" />
+    <Content Include="App_Data\html\shop-grid.html" />
+    <Content Include="App_Data\html\shoping-cart.html" />
+    <Content Include="Assest\img\banner\banner-1.jpg" />
+    <Content Include="Assest\img\banner\banner-2.jpg" />
+    <Content Include="Assest\img\blog\blog-1.jpg" />
+    <Content Include="Assest\img\blog\blog-2.jpg" />
+    <Content Include="Assest\img\blog\blog-3.jpg" />
+    <Content Include="Assest\img\blog\blog-4.jpg" />
+    <Content Include="Assest\img\blog\blog-5.jpg" />
+    <Content Include="Assest\img\blog\blog-6.jpg" />
+    <Content Include="Assest\img\blog\details\details-author.jpg" />
+    <Content Include="Assest\img\blog\details\details-hero.jpg" />
+    <Content Include="Assest\img\blog\details\details-pic.jpg" />
+    <Content Include="Assest\img\blog\sidebar\sr-1.jpg" />
+    <Content Include="Assest\img\blog\sidebar\sr-2.jpg" />
+    <Content Include="Assest\img\blog\sidebar\sr-3.jpg" />
+    <Content Include="Assest\img\breadcrumb.jpg" />
+    <Content Include="Assest\img\cart\cart-1.jpg" />
+    <Content Include="Assest\img\cart\cart-2.jpg" />
+    <Content Include="Assest\img\cart\cart-3.jpg" />
+    <Content Include="Assest\img\categories\cat-1.jpg" />
+    <Content Include="Assest\img\categories\cat-2.jpg" />
+    <Content Include="Assest\img\categories\cat-3.jpg" />
+    <Content Include="Assest\img\categories\cat-4.jpg" />
+    <Content Include="Assest\img\categories\cat-5.jpg" />
+    <Content Include="Assest\img\favicon.png" />
+    <Content Include="Assest\img\featured\feature-1.jpg" />
+    <Content Include="Assest\img\featured\feature-2.jpg" />
+    <Content Include="Assest\img\featured\feature-3.jpg" />
+    <Content Include="Assest\img\featured\feature-4.jpg" />
+    <Content Include="Assest\img\featured\feature-5.jpg" />
+    <Content Include="Assest\img\featured\feature-6.jpg" />
+    <Content Include="Assest\img\featured\feature-7.jpg" />
+    <Content Include="Assest\img\featured\feature-8.jpg" />
+    <Content Include="Assest\img\hero\banner.jpg" />
+    <Content Include="Assest\img\language.png" />
+    <Content Include="Assest\img\latest-product\lp-1.jpg" />
+    <Content Include="Assest\img\latest-product\lp-2.jpg" />
+    <Content Include="Assest\img\latest-product\lp-3.jpg" />
+    <Content Include="Assest\img\logo.png" />
+    <Content Include="Assest\img\payment-item.png" />
+    <Content Include="Assest\img\payment\payment_cod.jpg" />
+    <Content Include="Assest\img\payment\payment_online.jpg" />
+    <Content Include="Assest\img\product\anh.jpg" />
+    <Content Include="Assest\img\product\avar-2-300x300.jpg" />
+    <Content Include="Assest\img\product\avar-7-300x300.jpg" />
+    <Content Include="Assest\img\product\avar-8-300x300.jpg" />
+    <Content Include="Assest\img\product\avar-ban-lam-viec-ngoi-bet-ghc-4601-300x300.jpg" />
+    <Content Include="Assest\img\product\avar-kệ-sách-gỗ-300x300.jpg" />
+    <Content Include="Assest\img\product\avar-tu-quan-ao-GHC-51460--300x300.jpg" />
+    <Content Include="Assest\img\product\Ban-an-bang-go-4-cho-thiet-ke-dep-GHS-41221-ava-300x300.png" />
+    <Content Include="Assest\img\product\Ban-an-bang-go-chat-luong-cao-GHS-41081-ava-300x300.png" />
+    <Content Include="Assest\img\product\Ban-an-bang-go-chat-luong-cao-GHS-41154-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\ban-an-bang-go-dep-cho-gia-dinh-GHS-41219-ava-300x300.png" />
+    <Content Include="Assest\img\product\ban-an-bang-go-kieu-dang-tahnh-lich-GHS-41213-ava-300x300.png" />
+    <Content Include="Assest\img\product\Ban-an-bang-go-thiet-ke-dep-GHS-41085-ava-300x300.png" />
+    <Content Include="Assest\img\product\Ban-an-dep-bang-go-tu-nhien-GHS-41093-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\ban-an-gap-gon-ban-an-go-thiet-ke-thong-minh-ghc-41222-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\Ban-an-gia-dinh-4-cho-bang-go-tu-nhien-GHS-41216-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\Ban-an-gia-dinh-bang-go-thiet-ke-dep-GHS-41147-ava-300x300.png" />
+    <Content Include="Assest\img\product\Ban-an-gia-dinh-bang-go-tu-nhien-GHS-41086-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\Ban-an-gia-dinh-hien-dai-dep-GHS-41079-ava-300x300.png" />
+    <Content Include="Assest\img\product\Ban-an-gia-dinh-phong-cach-hien-dai-GHS-41220-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\Ban-an-gia-dinh-thiet-ke-dep-bang-go-soi-GHS-41212-ava-300x300.png" />
+    <Content Include="Assest\img\product\ban-an-go-cong-nghiep-nho-gon-tien-loi-ghs-4854-300x300.png" />
+    <Content Include="Assest\img\product\ban-an-go-gia-dinh-dep-sang-trong-hien-dai-ghs-4905-300x300.jpg" />
+    <Content Include="Assest\img\product\ban-an-go-gia-dinh-ghe-boc-ni-cao-cap-ghs-4909-300x300.jpg" />
+    <Content Include="Assest\img\product\ban-an-go-gia-dinh-thiet-ke-dep-hien-dai-ghs-4853-300x300.jpg" />
+    <Content Include="Assest\img\product\ban-an-go-gia-dinh-thiet-ke-sang-trong-hien-dai-ghs-4899-300x300.jpg" />
+    <Content Include="Assest\img\product\ban-an-go-hien-dai-sang-trong-tien-dung-ghs-4852-300x300.jpg" />
+    <Content Include="Assest\img\product\ban-an-go-hien-dai-thiet-ke-nho-gon-sang-trong-ghs-4908-300x300.jpg" />
+    <Content Include="Assest\img\product\ban-an-go-soi-gia-dinh-thiet-ke-dep-hien-dai-ghs-4902-300x300.jpg" />
+    <Content Include="Assest\img\product\Ban-an-go-soi-kieu-dang-nho-gon-cho-gia-dinh-GHS-41218-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\Ban-an-go-soi-thiet-ke-dep-thanh-lich-GHS-41215-ava-300x300.png" />
+    <Content Include="Assest\img\product\Ban-an-go-tu-nhien-cao-cap-GHS-41088-ava-300x300.png" />
+    <Content Include="Assest\img\product\Ban-an-hien-dai-4-ghe-cho-gia-dinh-GHS-41090-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\ban-an-hien-dai-bang-go-cao-cap-GHS-41145-ava-300x300.png" />
+    <Content Include="Assest\img\product\Ban-an-hien-dai-bang-go-cho-gia-dinh-GHS-41152-ava-300x300.png" />
+    <Content Include="Assest\img\product\ban-an-hien-dai-bang-go-soi-tu-nhien-sang-trong-ghs-4900-300x300.jpg" />
+    <Content Include="Assest\img\product\Ban-an-hien-dai-cho-gia-dinh-GHS-41148-ava-300x300.png" />
+    <Content Include="Assest\img\product\Ban-an-hien-dai-thiet-ke-an-tuong-GHS-41089-ava-300x300.png" />
+    <Content Include="Assest\img\product\Ban-an-hinh-vuong-bang-go-tu-nhien-GHS-41092-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\ban-hoc-doi-ban-lam-viec-doi-go-mdf-ghc-4612-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\ban-lam-viec-bang-go-mdf-phu-melamine-ghs-41397-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\ban-lam-viec-bang-go-thiet-ke-da-nang-ghs-41401-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\Ban-lam-viec-ca-nhan-bang-go-cong-nghiep-nho-gon-GHS-41371-ava-300x300.png" />
+    <Content Include="Assest\img\product\Ban-lam-viec-ca-nhan-bang-go-kieu-dang-nho-gon-GHS-41356-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\Ban-lam-viec-ca-nhan-tai-nha-kieu-dang-nho-gon-GHS-41359-ava-300x300.png" />
+    <Content Include="Assest\img\product\ban-lam-viec-ca-nhan-thiet-ke-don-gian-ghs-41403-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\Ban-lam-viec-dep-bang-go-phong-cach-hien-dai-GHS-41373-ava-300x300.png" />
+    <Content Include="Assest\img\product\Ban-lam-viec-dep-kieu-dang-nho-gon-go-cong-nghiep-GHS-41368-ava-300x300.png" />
+    <Content Include="Assest\img\product\ban-lam-viec-di-dong-ban-go-lam-viec-chac-chan-ghc-4603-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\ban-lam-viec-don-gian-kieu-dang-hien-dai-ghs-41407-9-300x300.jpg" />
+    <Content Include="Assest\img\product\ban-lam-viec-go-ban-hoc-da-nang-thiet-ke-hien-dai-ghc-4623-ava-1-300x300.jpg" />
+    <Content Include="Assest\img\product\ban-lam-viec-go-cong-nghiep-cao-cap-ghs-41400-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\Ban-lam-viec-go-cong-nghiep-khung-sat-chat-luong-cao-GHS-41370-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\Ban-lam-viec-go-cong-nghiep-khung-sat-phun-son-tinh-dien-GHS-41355-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\Ban-lam-viec-go-cong-nghiep-phun-son-cao-cap-GHS-41363-ava-300x300.png" />
+    <Content Include="Assest\img\product\Ban-lam-viec-go-cong-nghiep-phun-son-hien-dai-GHS-41358-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\Ban-lam-viec-go-cong-nghiep-tien-loi-kem-gia-sach-GHS-41360-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\ban-lam-viec-go-di-dong-ban-go-lien-ke-nho-gon-ghc-4604-ava-1-300x300.jpg" />
+    <Content Include="Assest\img\product\ban-lam-viec-go-kieu-dang-nho-gon-ghs-41396-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\ban-lam-viec-go-lien-gia-sach-ben-dep-ghs-41411-ava-3-300x300.jpg" />
+    <Content Include="Assest\img\product\ban-lam-viec-go-mdf-lien-tu-tai-lieu-ghs-41406-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\Ban-lam-viec-go-soi-tu-nhien-thiet-ke-dep-GHS-41372-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\Ban-lam-viec-go-tu-nhien-thiet-ke-tien-dung-GHS-41366-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\Ban-lam-viec-hien-dai-bang-go-cong-nghiep-cho-ca-nhan-GHS-41362-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\ban-lam-viec-hien-dai-go-GHS-41399-300x300.jpg" />
+    <Content Include="Assest\img\product\ban-lam-viec-hien-dai-lien-gia-sach-bang-go-ghs-41413-15-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\Ban-lam-viec-hien-dai-thiet-ke-dep-thong-minh-GHS-41365-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\ban-lam-viec-lien-gia-ket-cau-chac-chan-ghs-41410-ava-1-300x300.jpg" />
+    <Content Include="Assest\img\product\ban-lam-viec-lien-gia-kieu-dang-don-gian-ghs-41398-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\ban-lam-viec-nho-gon-bang-go-mdf-cot-loi-xanh-ghs-41404-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\ban-lam-viec-tai-nha-bang-go-cong-nghiep-ghs-41405-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\Ban-lam-viec-tai-nha-bang-go-kieu-dang-nho-gon-GHS-41361-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\Ban-lam-viec-tai-nha-bang-go-thiet-ke-tien-loi-GHS-41369-ava-300x300.png" />
+    <Content Include="Assest\img\product\Ban-lam-viec-tai-nha-khung-sat-chat-luong-cao-GHS-41357-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\ban-lam-viec-tai-nha-lien-tu-chua-tai-lieu-ghs-41408-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\Ban-lam-viec-tai-nha-nho-gon-thiet-ke-dep-GHS-41364-ava-300x300.png" />
+    <Content Include="Assest\img\product\Ban-lam-viec-tai-nha-thiet-ke-hien-dai-bang-go-GHS-41315-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\ban-lam-viec-tatami-ban-hoc-bang-go-mdf-ghc-4622-ava-1-300x300.jpg" />
+    <Content Include="Assest\img\product\ban-lam-viec-thong-minh-4155-2-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\ban-lam-viec-thong-minh-bang-go-cong-nghiep-ghs-4155-2-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\ban-lam-viec-thong-minh-GHC-4624-11-300x300.jpg" />
+    <Content Include="Assest\img\product\Ban-lam-viec-tien-dung-bang-go-cong-nghiep-GHS-41314-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\ban-nhat-da-nang-bang-go-soi-cao-cap-ghc-41414-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\Bo-ban-an-chat-luong-cao-thiet-ke-dep-GHS-41091-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\Bo-ban-an-gi-kieu-dang-nho-gon-GHS-41082-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\Bo-ban-an-gia-dinh-dep-thanh-lich-GHS-41153-ava-300x300.png" />
+    <Content Include="Assest\img\product\Bo-ban-an-gia-dinh-kieu-dang-nho-gon-GHS-41155-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\Bo-ban-an-gia-dinh-thiet-ke-dep-GHS-41083-ava-300x300.png" />
+    <Content Include="Assest\img\product\Bo-ban-an-go-4-ghe-hien-dai-GHS-41080-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\Bo-ban-an-go-dep-cho-gia-dinh-GHS-41087-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\Bo-ban-an-go-thiet-ke-an-tuong-GHS-41150-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\Bo-ban-an-hien-dai-cho-gia-dinh-GHS-41084-ava-300x300.png" />
+    <Content Include="Assest\img\product\Bo-ban-an-hien-dai-go-soi-kieu-dang-nho-gon-GHS-41217-ava-300x300.png" />
+    <Content Include="Assest\img\product\Bo-ban-an-tron-phong-cach-hien-dai-GHS-41149-ava-300x300.png" />
+    <Content Include="Assest\img\product\Bo-ban-ghe-an-bang-go-tu-nhien-GHS-41151-ava-300x300.png" />
+    <Content Include="Assest\img\product\Bo-ban-ghe-an-go-chat-luong-cao-cho-gia-dinh-GHS-41214-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\Bo-ban-ghe-an-phong-cach-hien-dai-GHS-41146-ava-300x300.png" />
+    <Content Include="Assest\img\product\Bàn-máy-tính-bàn-học-sinh-viên-bàn-làm-việc-tại-nhà-GHC-41416-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\ghc-9192-tk-300x300.png" />
+    <Content Include="Assest\img\product\gia-de-sach-go-nho-gon-ghs-2388-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\gia-de-sach-truyen-cho-be-bang-go-ghs-2385-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\gia-ke-sach-bang-go-da-nang-ghs-2394-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\gia-ke-sach-go-thiet-ke-don-gian-ghs-2398-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\gia-ke-sach-nhat-ke-sach-go-4-ngan-chua-tien-loi-ghc-2419-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\gia-sach-bang-go-kieu-dang-tien-dung-ghs-2378-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\gia-sach-cao-cap-bang-go-ghs-2382-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\gia-sach-da-nang-thiet-ke-sang-trong-ghs-2381-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\gia-sach-gia-dinh-kieu-dang-nho-gon-ghs-2379-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\gia-sach-gia-dinh-thiet-ke-da-nang-ghc-2405-9-300x300.jpg" />
+    <Content Include="Assest\img\product\gia-sach-go-nho-gon-thiet-ke-da-nang-ghc-2418-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\gia-sach-hien-dai-thiet-ke-don-gian-ghs-2377-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\gia-sach-hien-dai-thiet-ke-thong-minh-ghs-2380-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\gia-sach-phong-be-ke-gia-sach-go-mdf-ghc-2423-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-don-bang-go-cong-nghiep-thiet-ke-don-gian-ghs-9204-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-gia-dinh-go-cao-cap-thiet-ke-da-nang-ghs-9205-ava-1-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-go-cho-be-ghc-9226-1-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-go-cong-nghiep-mdf-thiet-ke-da-nang-ghs-9192-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-go-gia-dinh-kieu-dang-sang-trong-ghs-9200-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-go-MDF-ghc-9223-11-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-go-mdf-giuong-ngu-ket-cau-chac-chan-ghc-9206-ava-1-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-go-mdf-rong-1m2-phong-cach-nhat-ghc-9214-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-go-soi-tu-nhien-ket-cau-chac-chan-ghs-9189-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-go-tu-nhien-cao-cap-thiet-ke-don-gian-ghs-9191-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-hop-hien-dai-thiet-ke-tien-loi-ghc-9194-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-ngu-bang-go-hien-dai-kieu-dang-sang-trong-ghs-9190-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-ngu-bang-go-thiet-ke-phong-cach-hien-dai-ghs-9181-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-ngu-bang-go-thiet-ke-sang-trong-ghc-9093-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-ngu-bet-GHC-9221-11-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-ngu-cho-be-giuong-go-cong-nghiep-mdf-dep-ghc-9227-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-ngu-cho-be-giuong-ngu-mai-nha-bang-go-ghc-9228-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-ngu-cho-tre-em-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-ngu-dep-hien-dai-thiet-ke-da-nang-ghs-9199-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-ngu-gia-dinh-bang-go-thiet-ke-sang-trong-ghs-9186-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-ngu-gia-dinh-cao-cap-lam-bang-go-mdf-ghs-9198-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-ngu-gia-dinh-hien-dai-thiet-ke-tre-trung-ghs-9195-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-ngu-gia-dinh-phong-cach-nhat-ghc-9217-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-ngu-go-cong-nghiep-mdf-thiet-ke-moi-ghc-9216-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-ngu-go-dep-ket-cau-chac-chan-ghs-9182-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-ngu-go-gia-dinh-thiet-ke-don-gian-ghs-9203-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-ngu-go-mdf-tatami-rong-1m4-thiet-ke-moi-ghc-9219-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-ngu-go-mdf-thiet-ke-kieu-dang-don-gian-ghs-9201-ava-1-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-ngu-go-soi-da-nang-tien-dung-ghs-9183-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-ngu-go-soi-thiet-ke-don-gian-ghs-9187-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-ngu-go-soi-thiet-ke-sang-trong-ghs-9184-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-ngu-hien-dai-bang-go-soi-ghs-9188-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-ngu-hien-dai-bang-go-thiet-ke-lien-gia-trung-bay-ghs-9196-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-ngu-hien-dai-kieu-dang-sang-trong-ghs-9185-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-ngu-hien-dai-tatami-rong-1m2-ket-cau-chac-chan-ghc-9218-ava-1-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-ngu-nhat-bang-go-thiet-ke-tien-loi-ghs-9202-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-ngu-nhat-tatami-bang-go-cong-nghiep-ghc-9230-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-ngu-nhat-tatami-rong-1m6-bang-go-cong-nghiep-ghc-9220-ava-1-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-ngu-tatami-rong-1m-thiet-ke-don-gian-ghc-9213-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-ngu-tatami-thiet-ke-tre-trung-ghc-9209-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-nhat-bang-go-GHC-9224-10-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-nhat-bang-go-rong-1m4-kieu-dang-hien-dai-ghc-9215-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-nhat-tatami-bang-go-cong-nghiep-ghc-9207-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-queen-bang-go-mdf-thiet-ke-sang-trong-ghc-9193-1-1-300x300.jpg" />
+    <Content Include="Assest\img\product\giuong-tatami-bang-go-ghc-9222-11-300x300.jpg" />
+    <Content Include="Assest\img\product\Giá-kệ-sách-tủ-để-đồ-xếp-hình-lắp-ráp-đa-năng-8-300x300.jpg" />
+    <Content Include="Assest\img\product\Giá-kệ-vuông-tủ-đồ-xếp-hình-tùy-biến-không-gian-GHC-2407-7-300x300.jpg" />
+    <Content Include="Assest\img\product\ke-de-do-hinh-robot-bang-go-thiet-ke-moi-ghc-1104-ava2-300x300.jpg" />
+    <Content Include="Assest\img\product\ke-de-sach-bang-go-mdf-cao-cap-ghs-2399-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\ke-de-sach-bao-go-mdf-phu-melamine-ghs-2397-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\ke-de-sach-cho-tre-ke-trang-tri-go-cong-nghiep-ghc-1101-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\ke-de-truyen-tranh-ke-gia-sach-go-mdf-ghc-1108-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\ke-do-quan-ao-tu-ke-treo-ao-kieu-dang-nho-gon-ghs-51480-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\ke-gia-de-sach-bang-go-tai-nha-ghs-2388-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\ke-gia-sach-go-da-nang-kieu-dang-tre-trung-ghs-51598-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\ke-gia-sach-go-ke-de-sach-nho-gon-dep-ghc-2413-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\ke-go-tatami-kieu-dang-don-gian-phong-cach-nhat-ghc-2422-ava-1-300x300.jpg" />
+    <Content Include="Assest\img\product\ke-go-tatami-thiet-ke-thong-minh-tien-loi-ghc-2424-ava-1-300x300.jpg" />
+    <Content Include="Assest\img\product\ke-sach-bang-go-ghc-2426-1-300x300.jpg" />
+    <Content Include="Assest\img\product\ke-sach-cho-be-ghc-1111-3-300x300.jpg" />
+    <Content Include="Assest\img\product\ke-sach-da-nang-ke-gia-sach-bang-go-mdf-chac-chan-ghc-2429-ava-1-300x300.jpg" />
+    <Content Include="Assest\img\product\ke-sach-da-nang-kieu-dang-doc-dao-ghs-2395-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\ke-sach-dung-dep-thiet-ke-nho-gon-ghs-2384-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\ke-sach-dung-ke-de-do-trang-tri-chan-go-tu-nhien-ghc-191-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\ke-sach-go-ke-trung-bay-da-nang-ghc-2417-ava-300x300.png" />
+    <Content Include="Assest\img\product\ke-sach-go-mdf-phu-melamine-ghs-2393-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\ke-sach-hien-dai-thiet-ke-sang-trong-ghs-2383-ava-1-300x300.jpg" />
+    <Content Include="Assest\img\product\ke-sach-hinh-robot-ke-de-do-go-kieu-dang-doc-dao-ghc-1103-2-300x300.jpg" />
+    <Content Include="Assest\img\product\ke-sach-mai-nha-doc-dao-ke-de-do-dep-ghc-1100-ava-1-300x300.jpg" />
+    <Content Include="Assest\img\product\ke-sach-nho-ghc-1110-9-300x300.jpg" />
+    <Content Include="Assest\img\product\ke-sach-nho-gon-ket-cau-chac-chan-ghc-1105-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\ke-sach-nho-ke-gia-sach-go-cong-nghiep-ghc-2416-ava-300x300.png" />
+    <Content Include="Assest\img\product\ke-sach-tatami-ke-gia-sach-go-cong-nghiep-ghc-2420-ava-1-300x300.jpg" />
+    <Content Include="Assest\img\product\ke-tatami-thong-minh-ke-gia-de-do-bang-go-ghc-2421-ava-1-300x300.jpg" />
+    <Content Include="Assest\img\product\ke-truyen-tranh-cho-be-ke-trang-tri-go-mdf-ghc-199-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\set-giuong-bet-tab-dau-giuong-kieu-nhat-ghc-9208-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-ao-bang-go-canh-truot-thiet-ke-tien-loi-ghs-51338-ava-1-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-ao-bang-go-thiet-ke-canh-mo-tien-dung-ghs-51436-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-ao-canh-chop-bang-go-soi-tu-nhien-cao-cap-ghs-51442-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-ao-canh-lua-bang-go-soi-tu-nhien-ghs-51143-ava1-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-ao-canh-lua-thiet-ke-chop-gia-ghs-51441-ava-1-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-ao-canh-mo-bang-go-kieu-dang-nho-gon-ghs-51345-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-ao-canh-mo-gia-dinh-bang-go-cao-cap-ghs-51435-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-ao-cho-be-ghc-2432-10-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-ao-di-dong-tu-quan-ao-thiet-ke-hien-dai-thong-minh-ghc-51462-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-ao-gia-dinh-bang-go-thiet-ke-dep-ghs-51434-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-ao-gia-dinh-tu-de-quan-ao-bang-go-tien-loi-ghc-51464-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-ao-go-hien-dai-thiet-ke-canh-mo-ghs-51444-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-ao-go-mdf-cho-be-gai-kieu-dang-de-thuong-ghs-51438-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-ao-go-mdf-ket-cau-chac-chan-phu-melamine-ghc-51472-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-ao-go-nho-gon-thiet-ke-phong-cach-hien-dai-ghc-51473-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-ao-nho-gon-ghc-5722-1-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-ao-nho-gon-tu-de-quan-ao-bang-go-mdf-ghc-51463-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-ao-tatami-go-thiet-ke-tien-dung-ghc-51469-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-de-do-tatami-tu-ao-kieu-nhat-bang-go-ghc-51471-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-de-quan-ao-bang-go-mdf-phun-son-ghs-51433-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-de-quan-ao-bang-go-thiet-ke-tien-loi-ghs-51430-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-de-quan-ao-canh-truot-go-mdf-cot-loi-xanh-ghs-51342-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-de-quan-ao-go-cong-nghiep-ket-cau-chac-chan-ghs-51344-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-dung-quan-ao-canh-mo-kich-thuoc-nho-gon-ghs-51428-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-dung-quan-ao-go-soi-sang-trong-ghs-51432-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-dung-quan-ao-thiet-ke-canh-truot-trien-dung-ghs-51340-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-go-dung-quan-ao-gia-dinh-thiet-ke-hien-dai-ghs-51343-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-luu-tru-do-tu-quan-ao-go-cong-nghiep-ghc-51476-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-quan-ao-canh-lua-bang-go-ket-cau-chac-chan-ghs-51339-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-quan-ao-canh-lua-thiet-ke-hien-dai-ghs-51429-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-quan-ao-canh-mo-go-mdf-thiet-ke-hien-dai-ghs-51341-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-quan-ao-canh-truot-bang-go-cao-cap-ghs-51439-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-quan-ao-cho-be-bang-go-cong-nghiep-ghs-51437-ava-1-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-quan-ao-cho-be-GHC-51467-1-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-quan-ao-cho-be-tu-dung-do-bang-go-cong-nghiep-ghc-5725-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-quan-ao-dep-thiet-ke-canh-mo-ghs-51431-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-quan-ao-don-gian-ghc-5724-3-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-quan-ao-GHC-1-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-quan-ao-GHC-51471-1-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-quan-ao-go-canh-chop-gia-cao-cap-ghs-51440-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-quan-ao-go-ghc-51466-1-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-quan-ao-go-kieu-nhat-tu-luu-tru-do-da-nang-ghc-51479-ava-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-treo-quan-ao-ghc-5720-2-300x300.jpg" />
+    <Content Include="Assest\img\product\tu-treo-quan-ao-ghc-5723-1-300x300.jpg" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\elegant-icons.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\jquery-ui.min.css" />
+    <Content Include="Content\nice-select.css" />
+    <Content Include="Content\owl.carousel.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\slicknav.min.css" />
+    <Content Include="Content\custom.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\daterangepicker.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\ElegantIcons.svg" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="App_Data\js-dèault\bootstrap.js" />
+    <Content Include="App_Data\js-dèault\bootstrap.min.js" />
+    <Content Include="App_Data\html\fonts\ElegantIcons.eot" />
+    <Content Include="App_Data\html\fonts\ElegantIcons.ttf" />
+    <Content Include="App_Data\html\fonts\ElegantIcons.woff" />
+    <Content Include="App_Data\html\fonts\fontawesome-webfont.eot" />
+    <Content Include="App_Data\html\fonts\fontawesome-webfont.ttf" />
+    <Content Include="App_Data\html\fonts\fontawesome-webfont.woff" />
+    <Content Include="App_Data\html\fonts\fontawesome-webfont.woff2" />
+    <Content Include="App_Data\html\fonts\FontAwesome.otf" />
+    <Content Include="App_Data\html\sass\style.scss" />
+    <Content Include="App_Data\html\sass\_base.scss" />
+    <Content Include="App_Data\html\sass\_blog-details.scss" />
+    <Content Include="App_Data\html\sass\_blog-sidebar.scss" />
+    <Content Include="App_Data\html\sass\_blog.scss" />
+    <Content Include="App_Data\html\sass\_breadcrumb.scss" />
+    <Content Include="App_Data\html\sass\_checkout.scss" />
+    <Content Include="App_Data\html\sass\_contact.scss" />
+    <Content Include="App_Data\html\sass\_footer.scss" />
+    <Content Include="App_Data\html\sass\_header.scss" />
+    <Content Include="App_Data\html\sass\_hero.scss" />
+    <Content Include="App_Data\html\sass\_home-page.scss" />
+    <Content Include="App_Data\html\sass\_mixins.scss" />
+    <Content Include="App_Data\html\sass\_responsive.scss" />
+    <Content Include="App_Data\html\sass\_shop-details.scss" />
+    <Content Include="App_Data\html\sass\_shop-grid.scss" />
+    <Content Include="App_Data\html\sass\_shoping-cart.scss" />
+    <Content Include="App_Data\html\sass\_sidebar.scss" />
+    <Content Include="App_Data\html\sass\_variable.scss" />
+    <Content Include="App_Data\html\Source\bootstrap-4.4.1-dist.zip" />
+    <Content Include="App_Data\html\Source\font-awesome-4.7.0.zip" />
+    <Content Include="App_Data\html\Source\jquery-nice-select-1.1.0.zip" />
+    <Content Include="App_Data\html\Source\jquery-ui-1.12.1.zip" />
+    <Content Include="App_Data\html\Source\OwlCarousel2-2.3.4.zip" />
+    <Content Include="App_Data\html\Source\sass.zip" />
+    <Content Include="App_Data\html\Source\SlickNav-master.zip" />
+    <None Include="App_Data\js-dèault\jquery-3.4.1.intellisense.js" />
+    <Content Include="App_Data\js-dèault\jquery-3.4.1.js" />
+    <Content Include="App_Data\js-dèault\jquery-3.4.1.min.js" />
+    <Content Include="App_Data\js-dèault\jquery-3.4.1.slim.js" />
+    <Content Include="App_Data\js-dèault\jquery-3.4.1.slim.min.js" />
+    <None Include="App_Data\js-dèault\jquery.validate-vsdoc.js" />
+    <Content Include="App_Data\js-dèault\jquery.validate.js" />
+    <Content Include="App_Data\js-dèault\jquery.validate.min.js" />
+    <Content Include="App_Data\js-dèault\jquery.validate.unobtrusive.js" />
+    <Content Include="App_Data\js-dèault\jquery.validate.unobtrusive.min.js" />
+    <Content Include="App_Data\js-dèault\modernizr-2.8.3.js" />
+    <Content Include="Scripts\custom.js" />
+    <Content Include="Scripts\daterangepicker.min.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery.nice-select.min.js" />
+    <Content Include="Scripts\jquery.slicknav.js" />
+    <Content Include="Scripts\main.js" />
+    <Content Include="Scripts\mixitup.min.js" />
+    <Content Include="Scripts\owl.carousel.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\ElegantIcons.eot" />
+    <Content Include="fonts\ElegantIcons.ttf" />
+    <Content Include="fonts\ElegantIcons.woff" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Product\Detail.cshtml" />
+    <Content Include="Views\Security\Login.cshtml" />
+    <Content Include="Views\Security\Register.cshtml" />
+    <Content Include="Views\Ajax\Add.cshtml" />
+    <Content Include="Views\Cart\Checkout.cshtml" />
+    <Content Include="Views\Home\Profire.cshtml" />
+    <Content Include="Views\Profile\Edit.cshtml" />
+    <Content Include="Views\Cart\OrderInfo.cshtml" />
+    <Content Include="Views\Profile\ChangePass.cshtml" />
+    <Content Include="Views\Invoice\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Views\Author\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Default\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AProduct\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AProduct\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AProduct\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ACategory\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ACategory\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ACategory\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AStore\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AStore\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AUser\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AUser\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AUser\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AInvoice\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\AInvoice\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AProvider\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AProvider\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AProvider\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AOrder\Index.cshtml" />
+    <None Include="packages.config" />
+    <Content Include="App_Data\js-dèault\jquery-3.4.1.slim.min.map" />
+    <Content Include="App_Data\js-dèault\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>57664</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44338/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

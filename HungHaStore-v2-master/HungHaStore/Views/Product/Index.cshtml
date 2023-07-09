@@ -1,0 +1,133 @@
+﻿@using HungHaStore.Models;
+@using PagedList.Mvc
+@model PagedList.IPagedList<san_pham>
+@{
+    var currency = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+    ViewBag.Title = "Index";
+    IEnumerable<loai_sp> loaiSanPham = ViewBag.loaiSanPham;
+    string search = Request.QueryString["search"];
+    string[] danh_muc = { };
+    string price = "";
+    string check = "";
+    if (Request.QueryString["danh_muc_sp"] != null)
+    {
+        danh_muc = Request.QueryString["danh_muc_sp"].Split(',');
+    }
+
+    price = Request.QueryString["price"];
+}
+<section class="breadcrumb-section set-bg" data-setbg="/Assest/img/breadcrumb.jpg" style="background-image: url(&quot;img/breadcrumb.jpg&quot;);">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h2>SẢN PHẨM</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="product spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-5">
+                <form method="get" action="@Url.Action("Index", "Product")" multiple>
+                    <div class="sidebar">
+                        <div class="sidebar__item">
+                            <h4>Danh mục</h4>
+                            <ul>
+                                @foreach (loai_sp item in loaiSanPham)
+                                {
+                                    <li class="p-1 font-weight-bold font-italic" style="font-size:0.8rem"><input type="checkbox" class="font-weight-bold font-italic" name="danh_muc_sp" value="@item.id" id="danh_muc_@item.id" @{check = Array.IndexOf(danh_muc, item.id.ToString()) > -1 ? "checked" : ""; @check } /><label for="danh_muc_@item.id">&nbsp;@item.ten</label></li>
+                                }
+                                <input type="hidden" name="search" value="@search" />
+                            </ul>
+                        </div>
+                        <div class="sidebar__item">
+                            <h4>Giá</h4>
+                            <ul>
+                                <li class="p-1 font-weight-bold font-italic" style="font-size:0.8rem">
+                                    <input type="radio" name="price" value="0:500000" id="price_500" @{check = price == "0:500000" ? "checked" : ""; @check } />
+                                    <label for="price_500">&nbsp;DƯỚI 500.000đ</label>
+                                </li>
+                                <li class="p-1 font-weight-bold font-italic" style="font-size:0.8rem">
+                                    <input type="radio" name="price" value="500000:1000000" id="price_500_1000" @{check = price == "500000:1000000" ? "checked" : ""; @check } />
+                                    <label for="price_500_1000">&nbsp;500.000đ - 1.000.000đ</label>
+                                </li>
+                                <li class="p-1 font-weight-bold font-italic" style="font-size:0.8rem">
+                                    <input type="radio" name="price" value="1000000:1500000" id="price_1000_1500" @{check = price == "1000000:1500000" ? "checked" : ""; @check } />
+                                    <label for="price_1000_1500">&nbsp;1.000.000đ - 1.500.000đ</label>
+                                </li>
+                                <li class="p-1 font-weight-bold font-italic" style="font-size:0.8rem">
+                                    <input type="radio" name="price" value="1500000:2000000" id="price_1500_2000" @{check = price == "1500000:2000000" ? "checked" : ""; @check } />
+                                    <label for="price_1500_2000">&nbsp;1.500.000đ - 2.000.000đ</label>
+                                </li>
+                                <li class="p-1 font-weight-bold font-italic" style="font-size:0.8rem">
+                                    <input type="radio" name="price" value="2000000" id="price_2000" @{check = price == "2000000" ? "checked" : ""; @check } />
+                                    <label for="price_2000">&nbsp;TRÊN 2.000.000đ</label>
+                                </li>
+                            </ul>
+                        </div>
+                        <button type="submit" class="btn btn-info"><i class="fa fa-filter"></i> Lọc</button>
+                        <button type="reset" class="btn btn-warning">Làm mới</button>
+                    </div>
+                </form>
+                
+            </div>
+            <div class="col-9">
+                <div class="row">
+                    @if (Model.Count() < 1)
+                    {
+                        <p>Không tìm thấy sản phẩm.</p>
+                    }
+                    else
+                    {
+                        foreach (san_pham item in Model)
+                        {
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-id="@item.id">
+                                        @if (item.giam_gia > 0)
+                                        {
+                                            <span class="badge badge-pill badge-danger" style="position:absolute">SALE</span>
+                                        }
+                                        <img src="/Assest/img/product/@item.hinh_anh" alt="@item.ten" />
+                                        <ul class="product__item__pic__hover">
+                                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                            <li><a href="javascript:void(0)" class="add-to-cart"><i class="fa fa-shopping-cart"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <h6><a href="@Url.Action("Detail","Product",new { id = item.id })">@item.ten</a></h6>
+                                        @if (item.giam_gia > 0)
+                                        {
+                                            <span style="text-decoration:line-through;font-size:80%">@String.Format(currency, "{0:c0}", item.gia_tien)</span>
+                                            <span class="text-danger">@String.Format(currency, "{0:c0}", item.gia_tien)</span>
+                                        }
+                                        else
+                                        {
+                                            <span>@String.Format(currency, "{0:c0}", item.gia_tien)</span>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="pagination justify-content-md-center">
+                            @Html.PagedListPager(Model, page => Url.Action("Index", "Product", new { page, search, pageSize = ViewBag.PageSize,price = Request.QueryString["price"], danh_muc_sp = Request.QueryString["danh_muc_sp"] }))
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    function changPrice(val) {
+        console.log(val);
+    }
+</script>
+

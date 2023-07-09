@@ -1,0 +1,247 @@
+﻿@using HungHaStore.Models
+@model HungHaStore.Models.san_pham
+@using HungHaStore.Helper
+@{
+    var currency = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+    ViewBag.Title = Model.ten;
+    List<san_pham> sanPhamLienQuan = ViewBag.sanPhamLienQuan;
+    string trang_thai = "<span class=\"text-danger\">Hết hàng</span>";
+    if (Model.kho != null && Model.kho.so_luong > 0)
+    {
+        trang_thai = "<span>Còn hàng</span>";
+    }
+}
+<section class="breadcrumb-section set-bg" data-setbg="/Assest/img/breadcrumb.jpg" style="background-image: url(&quot;/Assest/img/breadcrumb.jpg&quot;);">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h2>@Model.ten</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="product-details spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <div class="product__details__pic">
+                    <div class="product__details__pic__item">
+                        <img class="product__details__pic__item--large" src="/Assest/img/product/@Model.hinh_anh" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <div class="product__details__text">
+                    <h3>@Model.ten</h3>
+                    <div class="product__details__rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                        <span>(18 reviews)</span>
+                    </div>
+                    <div class="product__details__price">
+                        @if (Model.giam_gia > 0)
+                        {
+                            <span style="text-decoration:line-through;font-size:80%;color:black">@String.Format(currency, "{0:c0}", Model.gia_tien)</span>
+                            <span class="text-danger">@String.Format(currency, "{0:c0}", CalculatorHelper.priceSale(Model.giam_gia, Model.gia_tien))</span>
+                        }
+                        else
+                        {
+                            <span>@String.Format(currency, "{0:c0}", CalculatorHelper.priceSale(Model.giam_gia,Model.gia_tien))</span>
+                        }
+                    </div>
+                    <p>
+                        @Model.mo_ta
+                    </p>
+                    <div class="product__details__quantity">
+                        <div class="quantity">
+                            <div class="pro-qty">
+                                <a class="dec qtybtn">-</a>
+                                <input type="text" value="1" name="soluong">
+                                <a class="inc qtybtn">+</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="javascrip:void(0)" class="primary-btn" name="add_to_card">THÊM GIỎ HÀNG</a>
+                    <ul>
+                        <li><b>Trạng thái</b>@Html.Raw(trang_thai)</li>
+                        <li><b>Vận chuyển</b> <span>Miễn phí giao hàng</span></li>
+                        <li>
+                            <b>Chia sẻ</b>
+                            <div class="share">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="#"><i class="fa fa-pinterest"></i></a>
+                            </div>
+                        </li>
+                    </ul>
+                    @if (Model.kho == null || Model.kho.so_luong == 0)
+                    {
+                        <div class="mt-5 p-5 border">
+                            <h6 class="text-center mb-4">ĐĂNG KÝ NHẬN THÔNG TIN KHI CÓ HÀNG</h6>
+                            <input type="text" id="order-email" class="form-control rounded-pill mb-4" style="background: #f9f9f9;" value="" />
+                            <div class="form-group text-center">
+                                <button type="button" id="order-submit" class="btn btn-info">Đăng ký nhận thông tin</button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="product__details__tab">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab" aria-selected="true">Mô tả</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                            <div class="product__details__tab__desc">
+                                <h6>Thông tin sản phẩm</h6>
+                                <p>
+                                    @Model.mo_ta
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="related-product">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title related__product__title">
+                    <h2>Liên quan</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (san_pham item in sanPhamLienQuan)
+            {
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" data-setbg="/Assest/img/product/@item.hinh_anh" style="background-image: url(&quot;/Assest/img/product/Ban-an-bang-go-chat-luong-cao-GHS-41081-ava-300x300.png&quot;);">
+                            <ul class="product__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="product__item__text">
+                            <h6><a href="#">@item.ten</a></h6>
+                            <h5>@String.Format(currency, "{0:c0}", item.gia_tien)</h5>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<script>
+    $(document).on("click", "div.pro-qty .dec", function () {
+        var input = $("input[name=soluong]");
+        var soluong = input.val();
+        input.val(parseInt(soluong) - 1 < 1 ? 1 : parseInt(soluong) - 1);
+    })
+
+    $(document).on("click", "div.pro-qty .inc", function () {
+        var input = $("input[name=soluong]");
+        var soluong = input.val();
+        input.val(parseInt(soluong) + 1);
+    })
+
+    $(document).on("click", "#order-submit", function () {
+        $.ajax({
+            url: "@Url.Action("Order","Ajax")",
+            type: "get",
+            data: {
+                email: $("#order-email").val(),
+                id_sp: @Model.id,
+            },
+            dataType: 'json',
+            success: function (response) {
+                if (response == true) {
+                    alert("Đăng ký nhận thông tin thành công!");
+                } else {
+                    alert("Xảy ra lỗi.");
+                }
+            }
+        });
+    });
+
+    $('a[name=add_to_card]').on('click', function () {
+            var id = @Model.id;
+            var url = "@Url.Action("Add", "Ajax")";
+            var soluong = $("input[name=soluong]").val();
+            if (soluong < 1) {
+                alert("Số lượng sản phẩm đặt hàng ít nhất là 1 sản phẩm");
+                return;
+            }
+            $.ajax({
+                url: url,
+                type: "get",
+                data: {
+                    id: id,
+                    soluong: soluong,
+                },
+                dataType: 'json',
+                success: function (response) {
+                    if (response.status == "200") {
+                        flyToCart();
+                        $("#count_cart").html(response.count);
+                        $("#sum_money").html(response.sumMoney);
+                    } else {
+                        alert(response.message);
+                    }
+                    
+                }
+            });
+
+    });
+
+    function flyToCart() {
+        var cart = $('#shopping-cart');
+        var imgtodrag = $('.product__details__pic__item').find('img').eq(0);
+        if (imgtodrag) {
+            var imgclone = imgtodrag.clone()
+                .offset({
+                    top: imgtodrag.offset().top,
+                    left: imgtodrag.offset().left
+                })
+                .css({
+                    'opacity': '0.8',
+                    'position': 'absolute',
+                    'height': '150px',
+                    'width': '150px',
+                    'z-index': '100'
+                })
+                .appendTo($('body'))
+                .animate({
+                    'top': cart.offset().top + 10,
+                    'left': cart.offset().left + 10,
+                    'width': 75,
+                    'height': 75
+                }, 1000, 'easeInOutExpo');
+
+            setTimeout(function () {
+                cart.effect("shake", {
+                    times: 2
+                }, 500);
+            }, 1500);
+            imgclone.animate({
+                'width': 0,
+                'height': 0
+            }, function () {
+                $(this).detach()
+            });
+        }
+    }
+
+</script>

@@ -1,0 +1,227 @@
+﻿@using HungHaStore.Models;
+@using HungHaStore.Helper;
+@{ 
+    var currency = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+    ViewBag.Title = "Trang chủ";
+    List<san_pham> sanPhamNoiBat = ViewBag.sanPhamNoiBat; //nhận dữ liệu của sản phẩm từ controller.
+    List<loai_sp> loaiSanPham = ViewBag.loaiSanPham; //nhận dữ liệu của loại sản phẩm từ controller.
+    List<san_pham> sanPhamMoiNhat = ViewBag.sanPhamMoiNhat;
+    List<san_pham> sanPhamXemNhieu = ViewBag.sanPhamXemNhieu;
+    List<san_pham> sanPhamGiamGia = ViewBag.sanPhamGiamGia;
+}
+<section class="featured spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <h2>Nổi bật</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row featured__filter" id="MixItUp866079">
+            @foreach (san_pham sanPham in sanPhamNoiBat)
+            {
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg" data-id="@sanPham.id">
+                            @if (sanPham.giam_gia > 0)
+                            {
+                                <span class="badge badge-pill badge-danger" style="position:absolute">SALE</span>
+                            }
+                            <img src="/Assest/img/product/@sanPham.hinh_anh" alt="@sanPham.ten" />
+                            <ul class="featured__item__pic__hover">
+                                <li><a href="javascript:void(0)"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="javascript:void(0)" class="add-to-cart"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a href="@Url.Action("Detail", "Product",new {id=sanPham.id})">@sanPham.ten</a></h6>
+                            @if (sanPham.giam_gia > 0)
+                            {
+                                <h4 style="text-decoration:line-through;font-size:80%">@String.Format(currency, "{0:c0}", sanPham.gia_tien)</h4>
+                                <h4 class="text-danger font-weight-bold">@String.Format(currency, "{0:c0}", CalculatorHelper.priceSale(sanPham.giam_gia, sanPham.gia_tien))</h4>
+                            }
+                            else
+                            {
+                                <h4 class="font-weight-bold">@String.Format(currency, "{0:c0}", sanPham.gia_tien)</h4>
+                            }
+                        </div>
+                    </div>
+                </div>
+             }
+        </div>
+    </div>
+</section>
+<div class="banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="banner__pic">
+                    <img src="~/Assest/img/banner/banner-1.jpg" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="banner__pic">
+                    <img src="~/Assest/img/banner/banner-2.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="latest-product spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="latest-product__text">
+                    <h4>Mới nhất</h4>
+                    @if (sanPhamMoiNhat.Count() > 0)
+                    {
+                        foreach (san_pham item in sanPhamMoiNhat)
+                        {
+                            <a href="@Url.Action("Detail", "Product", new { id = item.id })" class="latest-product__item">
+                                <div class="latest-product__item__pic">
+                                    @if (item.giam_gia > 0)
+                                    {
+                                        <span class="badge badge-pill badge-danger text-white" style="position:absolute">SALE</span>
+                                    }
+                                    <img src="/Assest/img/product/@item.hinh_anh" alt="@item.hinh_anh">
+                                </div>
+                                <div class="latest-product__item__text">
+                                    <h6>@item.ten</h6>
+                                    @if (item.giam_gia > 0)
+                                    {
+                                        <span style="text-decoration:line-through;font-size:80%">@String.Format(currency, "{0:c0}", item.gia_tien)</span>
+                                        <span class="text-danger">@String.Format(currency, "{0:c0}", CalculatorHelper.priceSale(item.giam_gia,item.gia_tien))</span>
+                                    }
+                                    else
+                                    {
+                                        <span>@String.Format(currency, "{0:c0}", item.gia_tien)</span>
+                                    }
+                                </div>
+                            </a>
+                        }
+                    }else {
+                        <p>Không có dữ liệu </p>
+                    }
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="latest-product__text">
+                    <h4>Xem nhiều</h4>
+                    @if (sanPhamXemNhieu.Count() > 0)
+                    {
+                        foreach (san_pham item in sanPhamXemNhieu)
+                        {
+                            <a href="@Url.Action("Detail","Product",new { id =item.id })" class="latest-product__item">
+                                <div class="latest-product__item__pic">
+                                    @if (item.giam_gia > 0)
+                                    {
+                                        <span class="badge badge-pill badge-danger text-white" style="position:absolute">SALE</span>
+                                    }
+                                    <img src="/Assest/img/product/@item.hinh_anh" alt="@item.hinh_anh">
+                                </div>
+                                <div class="latest-product__item__text">
+                                    <h6>@item.ten</h6>
+                                    @if (item.giam_gia > 0)
+                                    {
+                                        <span style="text-decoration:line-through;font-size:80%">@String.Format(currency, "{0:c0}", item.gia_tien)</span>
+                                        <span class="text-danger">@String.Format(currency, "{0:c0}", CalculatorHelper.priceSale(item.giam_gia, item.gia_tien))</span>
+                                    }
+                                    else
+                                    {
+                                        <span>@String.Format(currency, "{0:c0}", item.gia_tien)</span>
+                                    }
+                                </div>
+                            </a>
+                        }
+                    }
+                    else
+                    {
+                        <p>Không có dữ liệu </p>
+                    }
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="latest-product__text">
+                    <h4>Xem nhiều</h4>
+                    @if (sanPhamGiamGia.Count() > 0)
+                    {
+                        foreach (san_pham item in sanPhamGiamGia)
+                        {
+                            <a href="@Url.Action("Detail","Product",new { id =item.id })" class="latest-product__item">
+                                <div class="latest-product__item__pic">
+                                    @if (item.giam_gia > 0)
+                                    {
+                                        <span class="badge badge-pill badge-danger text-white" style="position:absolute">SALE</span>
+                                    }
+                                    <img src="/Assest/img/product/@item.hinh_anh" alt="@item.hinh_anh">
+                                </div>
+                                <div class="latest-product__item__text">
+                                    <h6>@item.ten</h6>
+                                    @if (item.giam_gia > 0)
+                                    {
+                                        <span style="text-decoration:line-through;font-size:80%">@String.Format(currency, "{0:c0}", item.gia_tien)</span>
+                                        <span class="text-danger">@String.Format(currency, "{0:c0}", CalculatorHelper.priceSale(item.giam_gia, item.gia_tien))</span>
+                                    }
+                                    else
+                                    {
+                                        <span>@String.Format(currency, "{0:c0}", item.gia_tien)</span>
+                                    }
+                                </div>
+                            </a>
+                        }
+                    }
+                    else
+                    {
+                        <p>Không có dữ liệu </p>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="from-blog spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title from-blog__title">
+                    <h2>Bài viết mới</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="blog__item">
+                    <div class="blog__item__pic">
+                        <img src="/Assest/img/blog/blog-1.jpg" alt="">
+                    </div>
+                    <div class="blog__item__text">
+                        <h5><a href="#">Tổng hợp các mẫu kệ giày dép đẹp & tiện lợi cho gia đình</a></h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="blog__item">
+                    <div class="blog__item__pic">
+                        <img src="/Assest/img/blog/blog-2.jpg" alt="">
+                    </div>
+                    <div class="blog__item__text">
+                        <h5><a href="#">Thiết kế kệ tivi âm tường – Thời thượng, đẳng cấp</a></h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="blog__item">
+                    <div class="blog__item__pic">
+                        <img src="~/Assest/img/blog/blog-3.jpg" alt="">
+                    </div>
+                    <div class="blog__item__text">
+                        <h5><a href="#">Top list những cửa hàng nội thất hàng đầu tại Việt Nam</a></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
